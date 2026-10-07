@@ -89,10 +89,10 @@ npm install
 
 ## 6. Environment variables
 
-Both `.env.example` files are committed; the real ones are not.
+Real env files are git-ignored and are never committed; there are deliberately
+no example files in the repository, so the full list lives here.
 
-**`backend/.env`** — see `backend/.env.example` for the full annotated list.
-The values you must supply:
+**`backend/.env`** — the values you must supply:
 
 | Variable | Where it comes from |
 |---|---|
@@ -102,6 +102,10 @@ The values you must supply:
 | `SUPABASE_JWT_SECRET` | Supabase → Settings → API → JWT Secret |
 | `VIRUSTOTAL_API_KEY` | <https://www.virustotal.com/gui/user/<id>/apikey> |
 | `ALLOWED_EMAIL_DOMAINS` | Must be `live.iium.edu.my` (IIUM Live only) |
+
+Optional overrides such as `CORS_ORIGINS`, `MAX_UPLOAD_MB`, `AI_ENABLED`,
+`HUGGINGFACE_API_KEY`, `STORAGE_BUCKET` and `LOG_LEVEL` all have safe defaults —
+see `backend/app/core/config.py` for every setting.
 
 **`frontend/.env.local`** — `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`.
 
@@ -158,7 +162,7 @@ and apply the policies from that migration file.
 There is no self-service path to the admin role. After signing in once, run:
 
 ```sql
-select public.promote_to_admin('your.email@iium.edu.my');
+select public.promote_to_admin('your.email@live.iium.edu.my');
 ```
 
 ## 8. Authentication configuration
@@ -336,7 +340,7 @@ pip install -r requirements.txt
 uvicorn app.main:app --host 0.0.0.0 --port $PORT
 ```
 
-Set every variable from `backend/.env.example`, including
+Set every variable from the table in section 6, including
 `ENVIRONMENT=production`, the real `CORS_ORIGINS`, and the four secrets the
 production validator insists on.
 
@@ -386,4 +390,3 @@ SMAREX/
         ├── App.tsx     routes and guards
         └── main.tsx
 ```
-through the domain allow-list.
