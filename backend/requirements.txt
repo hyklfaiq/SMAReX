@@ -1,0 +1,28 @@
+# SMAReX backend runtime dependencies
+# Install: pip install -r requirements.txt
+
+# --- web framework -----------------------------------------------------------
+fastapi>=0.115,<1.0
+uvicorn[standard]>=0.32
+python-multipart>=0.0.17          # multipart/form-data for uploads
+
+# --- data model / validation -------------------------------------------------
+pydantic>=2.9,<3.0
+pydantic-settings>=2.6            # env-var driven Settings
+email-validator>=2.2
+
+# --- database ---------------------------------------------------------------
+SQLAlchemy[asyncio]>=2.0.36
+asyncpg>=0.30                     # PostgreSQL driver for Supabase
+
+# --- outbound HTTP (VirusTotal, Hugging Face, Supabase Storage) --------------
+httpx>=0.27
+
+# --- PDF text extraction -----------------------------------------------------
+pypdf>=5.1
+
+# --- auth / resilience -------------------------------------------------------
+PyJWT>=2.9                        # verifies the Supabase access token
+tenacity>=9.0                     # bounded retries for flaky third parties
+
+# --- local AI fallback (optional, see requirements-ai.txt) -------------------
