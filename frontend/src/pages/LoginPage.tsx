@@ -139,10 +139,9 @@ export default function LoginPage({ initialMode = "signin" }: { initialMode?: "s
           {!configured && (
             <Card className="border-amber-500/40 bg-amber-500/5">
               <CardContent className="p-4 text-sm">
-                Supabase is not configured. Copy{" "}
-                <code className="rounded bg-muted px-1 py-0.5 text-xs">.env.example</code> to{" "}
-                <code className="rounded bg-muted px-1 py-0.5 text-xs">.env</code> and fill in your
-                project URL and anon key.
+                Supabase is not configured. Create{" "}
+                <code className="rounded bg-muted px-1 py-0.5 text-xs">.env.local</code> in the
+                frontend folder and fill in your project URL and anon key.
               </CardContent>
             </Card>
           )}

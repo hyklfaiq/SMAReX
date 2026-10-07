@@ -14,7 +14,7 @@ export const isSupabaseConfigured = Boolean(url && anonKey);
 
 if (!isSupabaseConfigured) {
   console.warn(
-    "[SMAReX] Supabase is not configured. Copy .env.example to .env and fill in " +
+    "[SMAReX] Supabase is not configured. Create frontend/.env.local and fill in " +
       "VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY.",
   );
 }
